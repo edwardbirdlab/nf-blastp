@@ -24,5 +24,5 @@ workflow BLASTP_SW {
 
         BLASTP(ch_blastp)
 
-        BLASTP.out.result.collectFile(name: '${params.project_name}_blastp_of6.txt').subscribe { file -> println "Entries are saved to file: $file"}
+        BLASTP.out.result.collectFile(name: 'params.project_name_blastp_of6.txt', storeDir: parmas.launchDir).subscribe { file -> println "Entries are saved to file: $file"}
 }
