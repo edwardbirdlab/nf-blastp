@@ -12,7 +12,8 @@ process BLASTP_DB {
     script:
 
     """
-    makeblastdb -in ${fa} -blastdb_version 5 -title "blast_db_nf" -dbtype prot
+    mkdir blast_db_nf
+    makeblastdb -in ${fa} -blastdb_version 5 -title "blast_db_nf" -dbtype prot -out ./blast_db_nf
     """
 }
 
@@ -31,6 +32,6 @@ process BLASTP {
     script:
 
     """
-    mblastp -db $db/$db_name -query query.fa -outfmt 6 > blast_result
+    mblastp -db ${db} -query query.fa -outfmt 6 > blast_result
     """
 }
