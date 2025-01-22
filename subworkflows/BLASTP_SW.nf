@@ -20,7 +20,9 @@ workflow BLASTP_SW {
 
         BLASTP_DB(db_prots)
 
-        BLASTP(query_prots, BLASTP_DB.out.db)
+        ch_blastp = query_prots.combine(BLASTP_DB.out.db)
+
+        BLASTP(ch_blastp)
 
         BLASTP.out.result.collectFile(name: '${params.project_name}_blastp_of6.txt').subscribe { file -> println "Entries are saved to file: $file"}
 }

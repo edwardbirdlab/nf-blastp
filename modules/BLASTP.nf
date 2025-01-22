@@ -23,8 +23,7 @@ process BLASTP {
     container 'ncbi/blast:2.16.0'
 
     input:
-        file(fa)
-        file(db)
+        tuple file(fa), file(db)
 
     output:
        path("blast_result"), emit: result
@@ -33,6 +32,6 @@ process BLASTP {
     script:
 
     """
-    blastp -db ./${db}/blast_db -query ${fa} -outfmt 6 > blast_result
+    blastp -db ./${db}/prot_db -query ${fa} -outfmt 6 > blast_result
     """
 }
