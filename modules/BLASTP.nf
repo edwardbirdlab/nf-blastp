@@ -32,6 +32,6 @@ process BLASTP {
     script:
 
     """
-    mblastp -db ${db} -query query.fa -outfmt 6 > blast_result
+    blastp -db ${db} -query query.fa -outfmt 6 > blast_result
     """
 }
