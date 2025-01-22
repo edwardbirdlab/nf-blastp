@@ -3,7 +3,7 @@
 nextflow.enable.dsl=2
 
 ch_db_proteins = params.prot_db
-Channel.fromPath(params.query).splitFasta(by: params.chunkSize, file:true).set { ch_fasta }
+Channel.fromPath(params.prot_query).splitFasta(by: params.chunkSize, file:true).set { ch_fasta }
 
 
 include { BLASTP as BLASTP } from './workflows/BLASTP.nf'
