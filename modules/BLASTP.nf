@@ -12,7 +12,7 @@ process BLASTP_DB {
     script:
 
     """
-    mkdir blast_db_nf
+    mkdir BLAST Database error: Database memory map file error
     makeblastdb -in ${fa} -blastdb_version 5 -title "blast_db_nf" -dbtype prot -out ./blast_db_nf
     """
 }
@@ -32,6 +32,6 @@ process BLASTP {
     script:
 
     """
-    blastp -db ${db} -query ${fa} -outfmt 6 > blast_result
+    blastp -db ${db}/blast_db_nf -query ${fa} -outfmt 6 > blast_result
     """
 }
