@@ -2,7 +2,7 @@
 
 nextflow.enable.dsl=2
 
-ch_db_proteins = params.prot_db
+ch_db_proteins = Channel.fromPath(params.prot_db)
 Channel.fromPath(params.prot_query).splitFasta(by: params.chunkSize, file:true).set { ch_fasta }
 
 
