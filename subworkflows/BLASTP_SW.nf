@@ -22,5 +22,5 @@ workflow BLASTP_SW {
 
         BLASTP(query_prots, BLASTP_DB.out.db)
 
-        BLASTP.out.result.collectFile(name: 'blastp_of6.txt').subscribe { file -> println "Entries are saved to file: $file"}
+        BLASTP.out.result.collectFile(name: '${params.project_name}_blastp_of6.txt').subscribe { file -> println "Entries are saved to file: $file"}
 }
