@@ -13,7 +13,7 @@ process BLASTP_DB {
 
     """
     mkdir blast_db_nf
-    makeblastdb -in ${fa} -blastdb_version 5 -title "blast_db_nf" -dbtype prot -out ./blast_db_nf
+    makeblastdb -in ${fa} -blastdb_version 5 -dbtype prot -out ./blast_db_nf
     """
 }
 
